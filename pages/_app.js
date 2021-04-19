@@ -1,13 +1,13 @@
 import "../styles/index.css";
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Layout from "../components/Layout";
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import makeStore from '../store/store'
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+  static async getServerSideProps({ Component, ctx }) {
+    const pageProps = Component.getServerSideProps  ? await Component.getServerSideProps(ctx) : {};
     return { pageProps };
   }
 
