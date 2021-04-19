@@ -54,7 +54,7 @@ function IndexPage (props) {
     </Fragment>
   );
 }
-IndexPage.getInitialProps = async({ params = {}, isServer, store}) => {
+IndexPage.getServerSideProps = async({ params = {}, isServer, store}) => {
   // const productsData = await getClient(preview).fetch(query);
   // Fetch today NASA APOD
   await store.execSagaTasks(isServer, dispatch => {
