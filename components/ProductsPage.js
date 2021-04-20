@@ -1,8 +1,9 @@
-import { useState } from "react";
+import PropTypes from 'prop-types'
+import React from 'react'
 
-import ProductCard from "./ProductCard";
+import ProductCard from './ProductCard'
 
-function ProductsPage({ products }) {
+function ProductsPage ({ products }) {
   return (
     <div className="container mx-auto px-6">
       <h3 className="text-gray-700 text-2xl font-medium">Juices</h3>
@@ -13,7 +14,13 @@ function ProductsPage({ products }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default ProductsPage;
+ProductsPage.propTypes = {
+  products: PropTypes.shape({
+    map: PropTypes.func
+  })
+}
+
+export default ProductsPage

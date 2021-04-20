@@ -1,21 +1,21 @@
 export default {
   widgets: [
     {
-      name: "sanity-tutorials",
+      name: 'sanity-tutorials',
       options: {
-        templateRepoId: "sanity-io/sanity-template-nextjs-ecommerce",
-      },
+        templateRepoId: 'sanity-io/sanity-template-nextjs-ecommerce'
+      }
     },
-    { name: "structure-menu" },
-    { name: "project-users", layout: { height: "auto" } },
+    { name: 'structure-menu' },
+    { name: 'project-users', layout: { height: 'auto' } },
     {
-      name: "document-list",
+      name: 'document-list',
       options: {
-        title: "Recent products",
-        order: "_createdAt desc",
-        types: ["product"],
+        title: 'Recent products',
+        order: '_createdAt desc',
+        types: ['product']
       },
-      layout: { width: "medium" },
-    },
-  ],
-};
+      layout: { width: 'medium' }
+    }
+  ]
+}

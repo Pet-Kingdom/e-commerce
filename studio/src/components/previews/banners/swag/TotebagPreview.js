@@ -1,6 +1,7 @@
-import React from "react";
-import IrlPreview from "../IrlPreview";
-import Totebag from "./Totebag";
+import PropTypes from 'prop-types'
+import React from 'react'
+import IrlPreview from '../IrlPreview'
+import Totebag from './Totebag'
 
 const nmatrix = [
   0.4721665923698971,
@@ -18,12 +19,12 @@ const nmatrix = [
   -0.004606645812998735,
   0.14868293730433127,
   0,
-  1.0000001057490668,
-];
+  1.0000001057490668
+]
 
 const TotebagPreview = ({ document }) => {
   if (!document.displayed) {
-    return <div>No document to preview</div>;
+    return <div>No document to preview</div>
   }
   return (
     <IrlPreview
@@ -34,7 +35,13 @@ const TotebagPreview = ({ document }) => {
     >
       <Totebag document={document.displayed} />
     </IrlPreview>
-  );
-};
+  )
+}
 
-export default TotebagPreview;
+TotebagPreview.propTypes = {
+  document: PropTypes.shape({
+    displayed: PropTypes.any
+  })
+}
+
+export default TotebagPreview

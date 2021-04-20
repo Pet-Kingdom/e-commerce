@@ -1,7 +1,9 @@
-import { PortableText } from "../../utils/sanity";
+import PropTypes from 'prop-types'
+import React from 'react'
+import { PortableText } from '../../utils/sanity'
 
-function TextSection(props) {
-  const { text } = props;
+function TextSection (props) {
+  const { text } = props
   return (
     <div>
       <div className="container mx-auto px-6">
@@ -10,7 +12,11 @@ function TextSection(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default TextSection;
+TextSection.propTypes = {
+  text: PropTypes.any
+}
+
+export default TextSection

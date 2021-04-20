@@ -3,10 +3,10 @@ const STUDIO_REWRITE = {
   destination:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3333/studio/:path*'
-      : '/studio/index.html',
+      : '/studio/index.html'
 }
 
 module.exports = {
-  future: {webpack5: true,},
-  rewrites: () => [STUDIO_REWRITE],
+  future: { webpack5: true },
+  rewrites: () => [STUDIO_REWRITE]
 }

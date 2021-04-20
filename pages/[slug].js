@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+import React from 'react'
 import Error from 'next/error'
 import { groq } from 'next-sanity'
 import { useRouter } from 'next/router'
@@ -14,13 +16,19 @@ function ProductPageContainer ({ pageData, preview, slug }) {
     return <Error statusCode={404} />
   }
 
-  const { data: { page = {} } = {} } =  usePreviewSubscription(query, {
+  const { data: { page = {} } = {} } = usePreviewSubscription(query, {
     params: { slug },
     initialData: pageData,
     enabled: preview || router.query.preview !== null
   })
 
   return <LandingPage page={page} />
+}
+
+ProductPageContainer.propTypes = {
+  pageData: PropTypes.any,
+  preview: PropTypes.any,
+  slug: PropTypes.any
 }
 
 export async function getStaticProps ({ params = {}, preview = false }) {

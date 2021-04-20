@@ -1,6 +1,7 @@
-import React from "react";
-import IrlPreview from "./IrlPreview";
-import MagazineFrontpage from "./MagazineFrontpage";
+import PropTypes from 'prop-types'
+import React from 'react'
+import IrlPreview from './IrlPreview'
+import MagazineFrontpage from './MagazineFrontpage'
 
 const nmatrix = [
   0.20825408585799626,
@@ -18,12 +19,12 @@ const nmatrix = [
   0.21450732447343718,
   -0.03460954310518022,
   0,
-  1.000000215842422,
-];
+  1.000000215842422
+]
 
 const NewyorkPreview = ({ document }) => {
   if (!document.displayed) {
-    return <div>No document to preview</div>;
+    return <div>No document to preview</div>
   }
   return (
     <IrlPreview
@@ -34,7 +35,13 @@ const NewyorkPreview = ({ document }) => {
     >
       <MagazineFrontpage document={document.displayed} />
     </IrlPreview>
-  );
-};
+  )
+}
 
-export default NewyorkPreview;
+NewyorkPreview.propTypes = {
+  document: PropTypes.shape({
+    displayed: PropTypes.any
+  })
+}
+
+export default NewyorkPreview

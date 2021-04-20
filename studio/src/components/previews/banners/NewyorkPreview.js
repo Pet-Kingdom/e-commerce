@@ -1,6 +1,7 @@
-import React from "react";
-import IrlPreview from "./IrlPreview";
-import NewyorkBanner from "./NewyorkBanner";
+import PropTypes from 'prop-types'
+import React from 'react'
+import IrlPreview from './IrlPreview'
+import NewyorkBanner from './NewyorkBanner'
 
 const nmatrix = [
   0.47634888418298227,
@@ -18,12 +19,12 @@ const nmatrix = [
   0.001472894678121388,
   -0.25521471790978906,
   0,
-  0.9999998395947436,
-];
+  0.9999998395947436
+]
 
 const NewyorkPreview = ({ document }) => {
   if (!document.displayed) {
-    return <div>No document to preview</div>;
+    return <div>No document to preview</div>
   }
   return (
     <IrlPreview
@@ -34,7 +35,13 @@ const NewyorkPreview = ({ document }) => {
     >
       <NewyorkBanner document={document.displayed} />
     </IrlPreview>
-  );
-};
+  )
+}
 
-export default NewyorkPreview;
+NewyorkPreview.propTypes = {
+  document: PropTypes.shape({
+    displayed: PropTypes.any
+  })
+}
+
+export default NewyorkPreview

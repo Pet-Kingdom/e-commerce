@@ -1,7 +1,9 @@
-import Link from "next/link";
-import { urlFor } from "../utils/sanity";
+import PropTypes from 'prop-types'
+import React from 'react'
+import Link from 'next/link'
+import { urlFor } from '../utils/sanity'
 
-function ProductCard({ _id, title, mainImage, slug, defaultProductVariant }) {
+function ProductCard ({ _id, title, mainImage, slug, defaultProductVariant }) {
   return (
     <Link href={`/products/${slug.current}`}>
       <a className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
@@ -9,10 +11,10 @@ function ProductCard({ _id, title, mainImage, slug, defaultProductVariant }) {
           className="flex items-end justify-end h-56 w-full bg-cover"
           style={{
             backgroundImage: `url('${urlFor(mainImage)
-              .auto("format")
-              .fit("crop")
+              .auto('format')
+              .fit('crop')
               .width(750)
-              .quality(80)}`,
+              .quality(80)}`
           }}
         >
           <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
@@ -37,7 +39,19 @@ function ProductCard({ _id, title, mainImage, slug, defaultProductVariant }) {
         </div>
       </a>
     </Link>
-  );
+  )
 }
 
-export default ProductCard;
+ProductCard.propTypes = {
+  _id: PropTypes.any,
+  defaultProductVariant: PropTypes.shape({
+    price: PropTypes.any
+  }),
+  mainImage: PropTypes.any,
+  slug: PropTypes.shape({
+    current: PropTypes.any
+  }),
+  title: PropTypes.any
+}
+
+export default ProductCard

@@ -1,12 +1,13 @@
-import PropTypes from "prop-types";
-import Cta from "../Cta";
-import { PortableText, urlFor } from "../../utils/sanity";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Cta from '../Cta'
+import { PortableText, urlFor } from '../../utils/sanity'
 
-function ImageSection(props) {
-  const { heading, label, text, image, cta } = props;
+function ImageSection (props) {
+  const { heading, label, text, image, cta } = props
 
   if (!image) {
-    return null;
+    return null
   }
 
   return (
@@ -17,7 +18,7 @@ function ImageSection(props) {
             <figure>
               <img
                 className="rounded-md object-cover mx-auto"
-                src={urlFor(image).auto("format").width(2000).url()}
+                src={urlFor(image).auto('format').width(2000).url()}
                 alt={heading}
               />
               <figcaption>
@@ -33,7 +34,7 @@ function ImageSection(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 ImageSection.propTypes = {
@@ -42,12 +43,12 @@ ImageSection.propTypes = {
   text: PropTypes.array,
   image: PropTypes.shape({
     asset: PropTypes.shape({
-      _ref: PropTypes.string,
-    }),
+      _ref: PropTypes.string
+    })
   }),
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
-  cta: PropTypes.object,
-};
+  cta: PropTypes.object
+}
 
-export default ImageSection;
+export default ImageSection

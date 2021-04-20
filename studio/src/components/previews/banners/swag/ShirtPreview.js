@@ -1,6 +1,7 @@
-import React from "react";
-import IrlPreview from "../IrlPreview";
-import Shirt from "./Shirt";
+import PropTypes from 'prop-types'
+import React from 'react'
+import IrlPreview from '../IrlPreview'
+import Shirt from './Shirt'
 
 const nmatrix = [
   0.3240586730973198,
@@ -18,12 +19,12 @@ const nmatrix = [
   -0.013934259443964885,
   -0.02058682468305109,
   0,
-  1.0000000613503597,
-];
+  1.0000000613503597
+]
 
 const ShirtPreview = ({ document }) => {
   if (!document.displayed) {
-    return <div>No document to preview</div>;
+    return <div>No document to preview</div>
   }
   return (
     <IrlPreview
@@ -34,7 +35,13 @@ const ShirtPreview = ({ document }) => {
     >
       <Shirt document={document.displayed} />
     </IrlPreview>
-  );
-};
+  )
+}
 
-export default ShirtPreview;
+ShirtPreview.propTypes = {
+  document: PropTypes.shape({
+    displayed: PropTypes.any
+  })
+}
+
+export default ShirtPreview

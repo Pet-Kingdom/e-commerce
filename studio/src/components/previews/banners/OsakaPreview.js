@@ -1,6 +1,7 @@
-import React from "react";
-import IrlPreview from "./IrlPreview";
-import OsakaBanner from "./OsakaBanner";
+import PropTypes from 'prop-types'
+import React from 'react'
+import IrlPreview from './IrlPreview'
+import OsakaBanner from './OsakaBanner'
 
 const nmatrix = [
   0.21577131124299567,
@@ -18,12 +19,12 @@ const nmatrix = [
   0.04924368485178665,
   -0.07263236962611863,
   0,
-  1.0000005830670946,
-];
+  1.0000005830670946
+]
 
 const OsakaPreview = ({ document }) => {
   if (!document.displayed) {
-    return <div>No document to preview</div>;
+    return <div>No document to preview</div>
   }
   return (
     <IrlPreview
@@ -34,7 +35,13 @@ const OsakaPreview = ({ document }) => {
     >
       <OsakaBanner document={document.displayed} />
     </IrlPreview>
-  );
-};
+  )
+}
 
-export default OsakaPreview;
+OsakaPreview.propTypes = {
+  document: PropTypes.shape({
+    displayed: PropTypes.any
+  })
+}
+
+export default OsakaPreview
